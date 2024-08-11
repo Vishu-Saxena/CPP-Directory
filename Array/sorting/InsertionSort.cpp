@@ -4,13 +4,19 @@ using namespace std;
 // function for Insertion sort
 void InsertionSort(int arr[] , int len ){
     for(int i = 1 ; i<len ; i++){
-        for(int j = i-1 ; j >= 0 ; j--){
-            if(arr[j] > arr[j+1]){
-                int temp = arr[j];
-                arr[j] = arr[j+1];
-                arr[j+1] = temp;
-            }
+        int current = arr[i];
+        int j = i-1;
+        // Move elements of arr[0..i-1], that are greater than key,
+        // to one position ahead of their current position.
+        while(j>=0 && arr[j]>current){
+            arr[j+1] = arr[j];
+            j--;
         }
+        arr[j+1] = current;
+    }
+
+    for(int i=0 ; i<len ; i++){
+        cout << arr[i] << " ";
     }
 }
 
@@ -25,9 +31,7 @@ int main(){
         cin >> arr[j];
     }
     InsertionSort(arr , len);
-    for(int i=0 ; i<len ; i++){
-        cout << arr[i] << " ";
-    }
+    
     return 0;
 
 }

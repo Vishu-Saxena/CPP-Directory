@@ -65,8 +65,7 @@ void pascalTriangle(int len){
 }
 
 int main(){
-    // primeNumbers(115,10);
-    // FbSeries(10);
+    
     pascalTriangle(5);
     return 0;
 }
